@@ -23,8 +23,13 @@ export const FlashCards: VFC = memo(() => {
 
 	return (
 		<>
-			<Flex align="center" justify="center" mt={10} gap={400}>
-				<Box bg="green.200" w="18%" p={4} borderRadius="md" shadow="sm">
+			<Flex
+				align="center"
+				justify="center"
+				mt={10}
+				gap={{ base: "300px", md: "600px" }}
+			>
+				<Box bg="green.200" p={4} borderRadius="md" shadow="sm">
 					<Heading fontSize="2xl">ノート名</Heading>
 					<Text fontSize="2xl">{datas.notename}</Text>
 				</Box>

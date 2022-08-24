@@ -25,13 +25,12 @@ export const FlashCard: VFC<Props> = memo((props) => {
 		<>
 			{flashCardTexts.map((flashCardText, index) => {
 				return (
-					<VStack key={index} mt={0} spacing={150} align="stretch">
-						<Flex gap={5} align="center" ml={100} height="5vh" mt={100} mr={50}>
+					<VStack align="center" key={index}>
+						<Flex gap={5} align="center" mt={5}>
 							<Box
 								bg="white"
-								w={600}
+								w={{ base: "300px", md: "500px" }}
 								p={10}
-								mr={5}
 								borderRadius="md"
 								shadow="md"
 							>
@@ -45,7 +44,7 @@ export const FlashCard: VFC<Props> = memo((props) => {
 								</Heading>
 							</Box>
 							<Button
-								w={150}
+								w={20}
 								h={70}
 								bg="blue.400"
 								color="white"
@@ -56,7 +55,7 @@ export const FlashCard: VFC<Props> = memo((props) => {
 							</Button>
 							<Button
 								onClick={() => onClickDelete(index)}
-								w={150}
+								w={20}
 								h={70}
 								bg="red.400"
 								color="white"
@@ -67,7 +66,7 @@ export const FlashCard: VFC<Props> = memo((props) => {
 							<Popover>
 								<PopoverTrigger>
 									<Button
-										w={150}
+										w={20}
 										h={70}
 										bg="teal.400"
 										color="white"
@@ -79,7 +78,9 @@ export const FlashCard: VFC<Props> = memo((props) => {
 								<Portal>
 									<PopoverContent>
 										<PopoverArrow />
-										<PopoverHeader>{tipsTexts[index]}</PopoverHeader>
+										<PopoverHeader fontSize="xl">
+											{tipsTexts[index]}
+										</PopoverHeader>
 										<PopoverCloseButton />
 									</PopoverContent>
 								</Portal>

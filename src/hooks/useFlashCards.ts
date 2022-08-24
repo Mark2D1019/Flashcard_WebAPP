@@ -9,11 +9,10 @@ export const useFlashCards = () => {
 	const [topSize, setTopSize] = useState<number>(0);
 	const [parameter, setParameter] = useState<number>(0);
 	const buttomSize: number = newFlashCardTexts.length;
-	let setTimes: number = parameter;
+	const setTimes: number = parameter;
 	const addNumber = () => {
 		setTopSize(topSize + 1);
-		setParameter((topSize / buttomSize) * 100);
-		setTimes = (topSize / buttomSize) * 100;
+		setParameter(Math.floor((topSize / buttomSize) * 100));
 	};
 
 	//単語帳更新用処理
