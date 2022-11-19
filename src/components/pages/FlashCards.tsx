@@ -14,7 +14,6 @@ import { useDatas } from "../../hooks/useDatas";
 export const FlashCards: VFC = memo((props) => {
 	const location = useLocation();
 	const { datas } = useDatas();
-	console.log(location.state.bookName);
 	const {
 		tipsTexts,
 		onClickFlashCard,

@@ -12,7 +12,6 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 export const Login: VFC = memo(() => {
-	const navigate = useNavigate();
 	const [userId, setUserId] = useState<string>("");
 	const onChangeUserId = (e: ChangeEvent<HTMLInputElement>) => {
 		setUserId(e.target.value);
@@ -36,8 +35,11 @@ export const Login: VFC = memo(() => {
 		}
 	};
 
+	//login main featurs
+	const navigate = useNavigate();
 	const onClickLogin = (userId: string, password: string) => {
-		login(userId, password);
+		//login(userId, password);
+		navigate(`/home`, { state: { userId: userId, password: password } });
 	};
 
 	return (
