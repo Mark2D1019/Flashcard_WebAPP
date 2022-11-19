@@ -11,12 +11,11 @@ export const Header: VFC = memo(() => {
 	//Linkを作るための実装
 	const navigate = useNavigate();
 	const onClickHome = useCallback(() => navigate("/home"), []);
-	const onClickUserManagement = useCallback(
-		() => navigate("/home/usermanagement"),
-		[]
-	);
-	const onClickSetting = useCallback(() => navigate("/home/setting"), []);
-
+	// const onClickUserManagement = useCallback(
+	// 	() => navigate("/home/usermanagement"),
+	// 	[]
+	// );
+	// const onClickSetting = useCallback(() => navigate("/home/setting"), []);
 	return (
 		<>
 			<Flex
@@ -35,12 +34,12 @@ export const Header: VFC = memo(() => {
 					onClick={onClickHome}
 				>
 					{/* デフォルトの:はbreakpointを表す。md以上で文字サイズを変える */}
-					<Heading as="h1" fontSize={{ base: "md", md: "lg" }}>
-						ユーザ管理アプリ
+					<Heading as="h1" fontSize={{ base: "xl", md: "2xl" }}>
+						FlshCards List
 					</Heading>
 				</Flex>
 
-				<Flex
+				{/* <Flex
 					align="center"
 					fontSize="sm"
 					flexGrow={2}
@@ -51,7 +50,8 @@ export const Header: VFC = memo(() => {
 						<Link onClick={onClickUserManagement}>ユーザ一覧</Link>
 					</Box>
 					<Link onClick={onClickSetting}>設定</Link>
-				</Flex>
+				</Flex> */}
+
 				{/* <MenuIconButton onOpen={onOpen} /> */}
 			</Flex>
 			{/* <MenuDrawer

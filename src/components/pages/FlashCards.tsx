@@ -1,16 +1,20 @@
 import { Box, Flex, Heading, Text } from "@chakra-ui/react";
 import { CircularProgressLabel, CircularProgress } from "@chakra-ui/react";
 import { memo, VFC, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 import theme from "../../theme/theme";
 
 import { FlashCard } from "../molecules/FlashCard";
+
+//import { FlashCard } from "./FlashCardsLists";
 import { useFlashCards } from "../../hooks/useFlashCards";
 import { useDatas } from "../../hooks/useDatas";
 
-export const FlashCards: VFC = memo(() => {
+export const FlashCards: VFC = memo((props) => {
+	const location = useLocation();
 	const { datas } = useDatas();
-
+	console.log(location.state.bookName);
 	const {
 		tipsTexts,
 		onClickFlashCard,
@@ -29,9 +33,8 @@ export const FlashCards: VFC = memo(() => {
 				mt={10}
 				gap={{ base: "300px", md: "600px" }}
 			>
-				<Box bg="green.200" p={4} borderRadius="md" shadow="sm">
-					<Heading fontSize="2xl">ノート名</Heading>
-					<Text fontSize="2xl">{datas.notename}</Text>
+				<Box color="white" bg="teal.400" p={4} borderRadius="md" shadow="sm">
+					<Heading fontSize="3xl">{location.state.bookName}</Heading>
 				</Box>
 				<CircularProgress value={setTimes} color="green.400" size="100px">
 					<CircularProgressLabel>{setTimes}%</CircularProgressLabel>
