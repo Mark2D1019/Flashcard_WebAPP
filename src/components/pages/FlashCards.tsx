@@ -1,19 +1,17 @@
-import { Box, Flex, Heading, Text } from "@chakra-ui/react";
+import { Box, Flex, Heading } from "@chakra-ui/react";
 import { CircularProgressLabel, CircularProgress } from "@chakra-ui/react";
 import { memo, VFC, useEffect } from "react";
-import { useLocation } from "react-router-dom";
-
-import theme from "../../theme/theme";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import { FlashCard } from "../molecules/FlashCard";
-
-//import { FlashCard } from "./FlashCardsLists";
 import { useFlashCards } from "../../hooks/useFlashCards";
-import { useDatas } from "../../hooks/useDatas";
 
-export const FlashCards: VFC = memo((props) => {
+export const FlashCards: VFC = memo(() => {
 	const location = useLocation();
-	const { datas } = useDatas();
+	const navigate = useNavigate();
+	const onClickHome = () => {
+		navigate("/home");
+	};
 	const {
 		tipsTexts,
 		onClickFlashCard,
@@ -33,7 +31,14 @@ export const FlashCards: VFC = memo((props) => {
 				gap={{ base: "300px", md: "600px" }}
 			>
 				<Box color="white" bg="teal.400" p={4} borderRadius="md" shadow="sm">
-					<Heading fontSize="3xl">{location.state.bookName}</Heading>
+					<Heading
+						fontSize="3xl"
+						onClick={() => {
+							onClickHome();
+						}}
+					>
+						{location.state.bookName}
+					</Heading>
 				</Box>
 				<CircularProgress value={setTimes} color="green.400" size="100px">
 					<CircularProgressLabel>{setTimes}%</CircularProgressLabel>
